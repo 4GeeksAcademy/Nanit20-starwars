@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
-import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import { Home } from "./views/home.js";
+import { Character } from "./views/character.jsx";
+import injectContext from "./store/appContext.js";
+import { Navbar } from "./component/navbar.js";
+import { Planet } from "./views/planet.jsx";
+import { Vehicle } from "./views/vehicle.jsx";
 
 //create your first component
 const Layout = () => {
@@ -19,16 +17,14 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
-				</ScrollToTop>
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="*" element={<h1>Not found!</h1>} />
+					<Route path="/character/:theid" element={<Character />} />
+					<Route path="/planet/:theid" element={<Planet />} />
+					<Route path="/vehicle/:theid" element={<Vehicle />} />
+				</Routes>
 			</BrowserRouter>
 		</div>
 	);
