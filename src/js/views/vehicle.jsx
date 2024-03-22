@@ -8,8 +8,9 @@ export const Vehicle = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	useEffect(() => {
+		//console.log(params.theid)
 		actions.getVehicle(params.theid)
-	}, [])
+	}, [params.theid])
 	useEffect(() => {
 		setVehicle(store.vehicle)
 	}, [store.vehicle])
@@ -23,7 +24,7 @@ export const Vehicle = props => {
 						<p class="lead">The Force is strong with this one. Perhaps you think you are being treated unfairly? Nothing will stand in our way. I will finish what you started. No, I am your father! Impressive. Most impressive. Obi-Wan has taught you well. You have controlled your fear. Now, release your anger. Only your hatred can destroy me.</p>
 					</div>
 					<div class="col-md-5 order-md-1">
-						<img src={`https://starwars-visualguide.com/assets/img/vehicle/${params.theid}.jpg`} />
+						<img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.theid}.jpg`} style={{ width: '18rem', flex: "none", margin: "10px" }}/>
 
 					</div>
 				</div>

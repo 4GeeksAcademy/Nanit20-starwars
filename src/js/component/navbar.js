@@ -9,9 +9,9 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context)
 	return (
 		<div className="container-fluid px-5">
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<nav className="navbar navbar-expand-lg navbar-light">
 				<Link to={"/"}>
-					<p className="btn btn-outline-dark fw-bold btn-lg m-3">STAR WARS</p>
+					<p className="btn btn-outline-danger fw-bold btn-lg m-3">STAR WARS</p>
 				</Link>
 				<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
@@ -19,14 +19,15 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse flex-row-reverse " id="navbarNavDropdown">
 					<ul className="navbar-nav ">
 						<li className="nav-item dropstart">
-							<a className="nav-link dropdown-toggle btn btn-primary text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a className="nav-link dropdown-toggle btn btn-danger text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Favoritos
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								{store.favorite.map((ele, ind) => (
-
 									<li>
-										<a className="dropdown-item" href="#" key={ind}>{ele.name} <i className="fas fa-trash-alt" onClick={() => actions.deleteFavorite(ind)} /></a>
+										<div className="d-flex flex-row ">
+											<Link to={""+(ele.type)+"/" + (ele.id)}> <a className="dropdown-item" href="#">{ele.name} </a></Link> <i className="fas fa-trash-alt" onClick={() => actions.deleteFavorite(ind)} style={{ flex: "none", margin: "10px" }}/> 
+										</div>
 									</li>
 								))}
 

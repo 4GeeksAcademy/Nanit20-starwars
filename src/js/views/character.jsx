@@ -8,15 +8,14 @@ export const Character = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	useEffect(() => {
-
+		console.log(params.theid)
 		actions.getCharacter(params.theid)
-	}, [])
+	}, [params.theid])
 	useEffect(() => {
 		setCharacter(store.character)
 	}, [store.character])
 	return (
 		<div className="container mt-4">
-
 			<div>
 				<div class="row featurette">
 					<div class="col-md-7 order-md-2">
@@ -24,7 +23,7 @@ export const Character = props => {
 						<p class="lead">The Force is strong with this one. Perhaps you think you are being treated unfairly? Nothing will stand in our way. I will finish what you started. No, I am your father! Impressive. Most impressive. Obi-Wan has taught you well. You have controlled your fear. Now, release your anger. Only your hatred can destroy me.</p>
 					</div>
 					<div class="col-md-5 order-md-1">
-						<img src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`} />
+						<img src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`} classname="singleImg" style={{ width: '18rem', flex: "none", margin: "10px" }} />
 
 					</div>
 				</div>

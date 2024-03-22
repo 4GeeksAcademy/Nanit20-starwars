@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch("https://swapi.tech/api/people");
 					const data = await response.json();
-					console.log(data);
+					//console.log(data);
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch("https://swapi.tech/api/vehicles");
 					const data = await response.json();
-					//console.log(data);
+					console.log(data);
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -60,7 +60,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch("https://swapi.tech/api/people/" + id);
 					const data = await response.json();
-					console.log(data.result.properties);
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -81,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return;
 					}
 
-					setStore({ planet: data })
+					setStore({ planet: data.result })
 				} catch (error) {
 					console.log(error);
 				}
@@ -90,13 +89,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch("https://swapi.tech/api/vehicles/" + id);
 					const data = await response.json();
-					console.log(data);
+					//console.log(data);
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
 					}
 
-					setStore({ vehicle: data })
+					setStore({ vehicle: data.result.properties })
 				} catch (error) {
 					console.log(error);
 				}
@@ -114,11 +113,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				//console.log(data.name)
 				if (store.favorite.find(value => value.name == item.name)) {
-					console.log("ey")
 					const aux = store.favorite.filter((favorito) => favorito.name != item.name);
 					setStore({ favorite: aux });
 				} else {
-					console.log("ey2")
 					store.favorite.push({ name: item.name, id: item.uid, type: "character" });
 					setStore({ favorite: store.favorite })
 				}
@@ -127,29 +124,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}*/
 			},
-			getFavoritePlanet: async (id) => {
-				try {
+			getFavoritePlanet: async (item) => {
+				/*try {
 					const response = await fetch("https://swapi.tech/api/planets/" + (id + 1));
 					const data = await response.json();
 					//console.log(data);
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
-					}
+					}*/
 
-					const store = getStore();
+				const store = getStore();
 
-					if (store.favorite.find(value => value.name == data.name)) {
-						const aux = store.favorite.filter((favorito) => favorito != data.name);
-						setStore({ favorite: aux });
-					} else {
-						store.favorite.push({ name: data.name, id: id, type: "planet" });
-						setStore({ favorite: store.favorite })
-					}
-
-				} catch (error) {
-					console.log(error);
+				if (store.favorite.find(value => value.name == item.name)) {
+					const aux = store.favorite.filter((favorito) => favorito.name != item.name);
+					setStore({ favorite: aux });
+				} else {
+					store.favorite.push({ name: item.name, id: item.uid, type: "planet" });
+					setStore({ favorite: store.favorite })
 				}
+
+				/*	} catch (error) {
+						console.log(error);
+					}*/
+			},
+			getFavoriteVehicle: async (item) => {
+				/*try {
+					const response = await fetch("https://swapi.tech/api/planets/" + (id + 1));
+					const data = await response.json();
+					//console.log(data);
+					if (!response.ok) {
+						console.log(response.statusText);
+						return;
+					}*/
+
+				const store = getStore();
+
+				if (store.favorite.find(value => value.name == item.name)) {
+					const aux = store.favorite.filter((favorito) => favorito.name != item.name);
+					setStore({ favorite: aux });
+				} else {
+					store.favorite.push({ name: item.name, id: item.uid, type: "vehicle" });
+					setStore({ favorite: store.favorite })
+				}
+
+				/*	} catch (error) {
+						console.log(error);
+					}*/
 			},
 			deleteFavorite: (id) => {
 				const store = getStore();

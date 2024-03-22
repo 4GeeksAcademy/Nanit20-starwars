@@ -1,3 +1,73 @@
 /* 
     General Styles
 */
+
+.navbar{
+    margin-top:15px;
+    background: black;
+    border-radius:10px;
+    border:solid;
+    border-color:#dc3545;
+}
+
+body {
+    background-image: url("https://media.istockphoto.com/id/1370110270/es/vector/cielo-estrellado-nocturno-fondo-espacial-oscuro-con-estrellas.jpg?s=612x612&w=0&k=20&c=MmTdL6oocjxHbDBYPilefJ67RkX1vRryvF4xsOp7Sm0=");
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    margin-right:10px;
+}
+
+.navbar-toggler {
+    margin-right:10px;
+    border-color: hsl(354, 70%, 54%) !important;
+    background-color:#dc3545;
+}
+
+.card {
+    border:solid;
+    border-color:#ffc107;
+    background-color:black;
+}
+
+h5.card-title {
+    margin-bottom: 15px;
+    color:#ffc107;
+}
+
+.container.mt-4{
+    background-color:grey !important;
+    border:solid;
+    border-color:#ffc107;
+    border-radius: 10px;
+}
+
+.row{
+    margin-bottom:10px;
+}
+
+.singleImg{
+    
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(354, 70, 54,0.8); 
+    -webkit-box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(354, 70, 54,0.4); 
+}

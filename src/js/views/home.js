@@ -13,6 +13,8 @@ export const Home = () => {
 	const { store, actions } = useContext(Context)
 	useEffect(() => {
 		actions.getCharacters()
+		actions.getPlanets()
+		actions.getVehicles()
 	}, [])
 
 	return (
@@ -26,11 +28,22 @@ export const Home = () => {
 						))}
 					</div>
 				</div>
-
 				<h1 className="display-5 bs-danger fw-bold text-danger">Planetas</h1>
-				<PlanetCard />
+				<div className="card-group row flex-nowrap overflow-auto">
+					<div className="d-flex flex-row ">
+						{store.planets.map((item) => (
+							<PlanetCard item={item} />
+						))}
+					</div>
+				</div>
 				<h1 className="display-5 bs-danger fw-bold text-danger">Vehículos</h1>
-				<VehicleCard />
+				<div className="card-group row flex-nowrap overflow-auto">
+					<div className="d-flex flex-row ">
+						{store.vehicles.map((item) => (
+							<VehicleCard item={item} />
+						))}
+					</div>
+				</div>
 			</div>
 		</>
 	)
