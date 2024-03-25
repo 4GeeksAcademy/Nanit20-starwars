@@ -21,7 +21,7 @@ export const Planet = props => {
                 <div class="row featurette">
                     <div class="col-md-7 order-md-2">
                         <h2 class="featurette-heading text-center">{planet?.properties?.name}</h2>
-                        <p class="lead">The Force is strong with this one. Perhaps you think you are being treated unfairly? Nothing will stand in our way. I will finish what you started. No, I am your father! Impressive. Most impressive. Obi-Wan has taught you well. You have controlled your fear. Now, release your anger. Only your hatred can destroy me.</p>
+                        <p class="lead">{planet?.description}</p>
                     </div>
                     <div class="col-md-5 order-md-1">
                         <img src={planet?.uid == 1 ? 'https://i.pinimg.com/474x/9f/d0/02/9fd00203ccb2d3b53270623f7c5e8482.jpg' : "https://starwars-visualguide.com/assets/img/planets/" + (planet?.uid) + ".jpg"} style={{ width: '18rem', flex: "none", margin: "10px" }}/>

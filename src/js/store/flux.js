@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return;
 					}
 
-					setStore({ character: data.result.properties })
+					setStore({ character: data.result })
 				} catch (error) {
 					console.log(error);
 				}
