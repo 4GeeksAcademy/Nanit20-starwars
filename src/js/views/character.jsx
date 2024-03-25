@@ -20,10 +20,10 @@ export const Character = props => {
 				<div class="row featurette">
 					<div class="col-md-7 order-md-2">
 						<h2 class="featurette-heading text-center">{character?.properties?.name}</h2>
-						<p class="lead">{character?.description}</p>
+						<p class="lead" style={{ textAlign: "center" }}>{character?.description}</p>
 					</div>
-					<div class="col-md-5 order-md-1">
-						<img src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`} classname="singleImg" style={{ width: '18rem', flex: "none", margin: "10px" }} />
+					<div class="col-md-5 order-md-1 text-center">
+						<img src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`} classname="singleImg" style={{ border: "5px solid", borderRadius: "10px", borderColor: "#ffc107", maxWidth: "18rem", width: 'auto', height: "auto", marginTop: "10px", marginRight: "-10px" }} />
 
 					</div>
 				</div>

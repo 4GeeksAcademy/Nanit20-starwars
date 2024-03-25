@@ -36,7 +36,7 @@ h5.card-title {
 }
 
 .container.mt-4{
-    background-color:grey !important;
+    background-color:#dc3545!important;
     border:solid;
     border-color:#ffc107;
     border-radius: 10px;
@@ -46,8 +46,8 @@ h5.card-title {
     margin-bottom:10px;
 }
 
-.singleImg{
-    
+.row.featurette{
+    display:flex;
 }
 
 ::-webkit-scrollbar {

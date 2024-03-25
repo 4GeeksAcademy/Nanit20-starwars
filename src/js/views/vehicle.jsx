@@ -20,22 +20,22 @@ export const Vehicle = props => {
 			<div>
 				<div class="row featurette">
 					<div class="col-md-7 order-md-2">
-						<h2 class="featurette-heading text-center">{vehicle?.name}</h2>
-						<p class="lead">The Force is strong with this one. Perhaps you think you are being treated unfairly? Nothing will stand in our way. I will finish what you started. No, I am your father! Impressive. Most impressive. Obi-Wan has taught you well. You have controlled your fear. Now, release your anger. Only your hatred can destroy me.</p>
+						<h2 class="featurette-heading text-center">{vehicle?.properties?.name}</h2>
+						<p class="lead">{vehicle?.description}</p>
 					</div>
-					<div class="col-md-5 order-md-1">
-						<img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.theid}.jpg`} style={{ width: '18rem', flex: "none", margin: "10px" }}/>
+					<div class="col-md-5 order-md-1 text-center">
+						<img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.theid}.jpg`} style={{ border: "5px solid", borderRadius:"10px", borderColor:"#ffc107",maxWidth: "18rem", width: 'auto', height: "auto", marginTop: "10px", marginRight: "-10px" }}/>
 
 					</div>
 				</div>
 				<hr class="featurette-divider"></hr>
 				<div className="row">
-					<div className="col-2 text-center"><strong>Nombre</strong> <br />{vehicle?.name}</div>
-					<div className="col-2 text-center"><strong>Capacidad</strong> <br /> {vehicle?.cargo_capacity}</div>
-					<div className="col-2 text-center"><strong>Tripulación</strong> <br /> {vehicle?.crew}</div>
-					<div className="col-2 text-center"><strong>Tamaño</strong> <br /> {vehicle?.length}</div>
-					<div className="col-2 text-center"><strong>Modelo</strong> <br /> {vehicle?.model}</div>
-					<div className="col-2 text-center"><strong>Pasajeros</strong> <br /> {vehicle?.passengers}</div>
+					<div className="col-2 text-center"><strong>Nombre</strong> <br />{vehicle?.properties?.name}</div>
+					<div className="col-2 text-center"><strong>Capacidad</strong> <br /> {vehicle?.properties?.cargo_capacity}</div>
+					<div className="col-2 text-center"><strong>Tripulación</strong> <br /> {vehicle?.properties?.crew}</div>
+					<div className="col-2 text-center"><strong>Tamaño</strong> <br /> {vehicle?.properties?.length}</div>
+					<div className="col-2 text-center"><strong>Modelo</strong> <br /> {vehicle?.properties?.model}</div>
+					<div className="col-2 text-center"><strong>Pasajeros</strong> <br /> {vehicle?.properties?.passengers}</div>
 				</div>
 			</div>
 		</div>

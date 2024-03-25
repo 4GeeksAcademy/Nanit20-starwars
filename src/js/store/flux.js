@@ -95,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return;
 					}
 
-					setStore({ vehicle: data.result.properties })
+					setStore({ vehicle: data.result })
 				} catch (error) {
 					console.log(error);
 				}

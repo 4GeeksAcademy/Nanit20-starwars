@@ -17,12 +17,12 @@ export const Navbar = () => {
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse flex-row-reverse " id="navbarNavDropdown">
-					<ul className="navbar-nav ">
+					<ul className="navbar-nav">
 						<li className="nav-item dropstart">
 							<a className="nav-link dropdown-toggle btn btn-danger text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Favoritos
+								Favoritos {store.favorite.length}
 							</a>
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{ display: !store.favorite.length>0 && "none", }}>
 								{store.favorite.map((ele, ind) => (
 									<li>
 										<div className="d-flex flex-row ">

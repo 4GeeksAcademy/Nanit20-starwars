@@ -23,8 +23,8 @@ export const Planet = props => {
                         <h2 class="featurette-heading text-center">{planet?.properties?.name}</h2>
                         <p class="lead">{planet?.description}</p>
                     </div>
-                    <div class="col-md-5 order-md-1">
-                        <img src={planet?.uid == 1 ? 'https://i.pinimg.com/474x/9f/d0/02/9fd00203ccb2d3b53270623f7c5e8482.jpg' : "https://starwars-visualguide.com/assets/img/planets/" + (planet?.uid) + ".jpg"} style={{ width: '18rem', flex: "none", margin: "10px" }}/>
+                    <div class="col-md-5 order-md-1 text-center">
+                        <img src={planet?.uid == 1 ? 'https://i.pinimg.com/474x/9f/d0/02/9fd00203ccb2d3b53270623f7c5e8482.jpg' : "https://starwars-visualguide.com/assets/img/planets/" + (planet?.uid) + ".jpg"} style={{ border: "5px solid", borderRadius:"10px", borderColor:"#ffc107",maxWidth: "18rem", width: 'auto', height: "auto", marginTop: "10px", marginRight: "-10px" }}/>
 
 
                     </div>
