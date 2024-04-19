@@ -1,3 +1,5 @@
+const URL = "https://swapi.tech/api/"
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -10,12 +12,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorite: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+
 			getCharacters: async () => {
 				try {
-					const response = await fetch("https://swapi.tech/api/people");
+					const response = await fetch(URL + "people");
 					const data = await response.json();
-					//console.log(data);
+
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -28,9 +30,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getPlanets: async () => {
 				try {
-					const response = await fetch("https://swapi.tech/api/planets");
+					const response = await fetch(URL + "planets");
 					const data = await response.json();
-					//console.log(data);
+
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -43,9 +45,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getVehicles: async () => {
 				try {
-					const response = await fetch("https://swapi.tech/api/vehicles");
+					const response = await fetch(URL + "vehicles");
 					const data = await response.json();
-					console.log(data);
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -58,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getCharacter: async (id) => {
 				try {
-					const response = await fetch("https://swapi.tech/api/people/" + id);
+					const response = await fetch(URL + "people/" + id);
 					const data = await response.json();
 					if (!response.ok) {
 						console.log(response.statusText);
@@ -72,9 +73,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getPlanet: async (id) => {
 				try {
-					const response = await fetch("https://swapi.tech/api/planets/" + id);
+					const response = await fetch(URL + "planets/" + id);
 					const data = await response.json();
-					//console.log(data);
+
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -87,9 +88,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getVehicle: async (id) => {
 				try {
-					const response = await fetch("https://swapi.tech/api/vehicles/" + id);
+					const response = await fetch(URL + "vehicles/" + id);
 					const data = await response.json();
-					//console.log(data);
+
 					if (!response.ok) {
 						console.log(response.statusText);
 						return;
@@ -101,17 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getFavoriteCharacter: async (item) => {
-				/*try {
-					const response = await fetch("https://swapi.tech/api/people/" + (id + 1));
-					const data = await response.json();
-					//console.log(data);
-					if (!response.ok) {
-						//console.log(response.statusText);
-						return;
-					}*/
-
 				const store = getStore();
-				//console.log(data.name)
 				if (store.favorite.find(value => value.name == item.name)) {
 					const aux = store.favorite.filter((favorito) => favorito.name != item.name);
 					setStore({ favorite: aux });
@@ -119,23 +110,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					store.favorite.push({ name: item.name, id: item.uid, type: "character" });
 					setStore({ favorite: store.favorite })
 				}
-
-				/*} catch (error) {
-					console.log(error);
-				}*/
 			},
 			getFavoritePlanet: async (item) => {
-				/*try {
-					const response = await fetch("https://swapi.tech/api/planets/" + (id + 1));
-					const data = await response.json();
-					//console.log(data);
-					if (!response.ok) {
-						console.log(response.statusText);
-						return;
-					}*/
-
 				const store = getStore();
-
 				if (store.favorite.find(value => value.name == item.name)) {
 					const aux = store.favorite.filter((favorito) => favorito.name != item.name);
 					setStore({ favorite: aux });
@@ -143,20 +120,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					store.favorite.push({ name: item.name, id: item.uid, type: "planet" });
 					setStore({ favorite: store.favorite })
 				}
-
-				/*	} catch (error) {
-						console.log(error);
-					}*/
 			},
 			getFavoriteVehicle: async (item) => {
-				/*try {
-					const response = await fetch("https://swapi.tech/api/planets/" + (id + 1));
-					const data = await response.json();
-					//console.log(data);
-					if (!response.ok) {
-						console.log(response.statusText);
-						return;
-					}*/
 
 				const store = getStore();
 
@@ -168,9 +133,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ favorite: store.favorite })
 				}
 
-				/*	} catch (error) {
-						console.log(error);
-					}*/
 			},
 			deleteFavorite: (id) => {
 				const store = getStore();

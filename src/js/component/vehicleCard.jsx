@@ -21,13 +21,8 @@ export const VehicleCard = ({item}) => {
             }
         });
         setIsFavorite(isThere)
-        //setIsFavorite(store.favorite[item.uid - 1]?.name == item.name)
-        //setIsFavorite(store.favorite.includes(favoritoo => favoritoo.name == item.name))
-        //setIsFavorite(store.favorite.find(favoritoo => favoritoo.id == item.uid) != undefined)
     }, [store.favorite])
 
-    /*const [character, setCharacter] = useState();
-<p className="card-text">Tripulación: {item.crew} <br /> Máxima velocidad: {item.max_atmosphering_speed} <br /> Modelo: {item.model} </p>*/
     return (
         <div className="d-flex flex-row ">
             <div className="card" style={{ width: '18rem', flex: "none", margin: "10px" }}>
@@ -35,7 +30,7 @@ export const VehicleCard = ({item}) => {
                 <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <Link to={"/vehicle/" + (item.uid)}>
-                        <a href="#" className="btn btn-outline-warning">¡Averigua más!</a>
+                        <div className="btn btn-outline-warning">¡Averigua más!</div>
                     </Link>
                     <i className={isFavorite ? 'fa fa-star btn btn-outline-warning ms-5' : 'fa fa-heart btn btn-outline-warning ms-5'} onClick={() => cambioFavorito(item)} />
                 </div>

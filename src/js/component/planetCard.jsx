@@ -12,15 +12,6 @@ export const PlanetCard = ({ item }) => {
         actions.getFavoritePlanet(item);
         setIsFavorite(store.favorite.find(favoritoo => favoritoo.id == item.uid) != undefined)
     }
-    /*const [character, setCharacter] = useState();
-    useEffect(() => {
-
-        actions.getCharacter(item.uid)
-    }, [])
-    useEffect(() => {
-        setCharacter(store.character)
-    }, [store.character])
-    <p className="card-text">Población: {item.population} <br /> Terreno: {item.terrain}</p>*/
 
     useEffect(() => {
         let isThere = false
@@ -30,9 +21,6 @@ export const PlanetCard = ({ item }) => {
             }
         });
         setIsFavorite(isThere)
-        //setIsFavorite(store.favorite[item.uid - 1]?.name == item.name)
-        //setIsFavorite(store.favorite.includes(favoritoo => favoritoo.name == item.name))
-        //setIsFavorite(store.favorite.find(favoritoo => favoritoo.id == item.uid) != undefined)
     }, [store.favorite])
 
     return (
@@ -42,7 +30,7 @@ export const PlanetCard = ({ item }) => {
                 <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <Link to={"/planet/" + (item.uid)}>
-                        <a href="#" className="btn btn-outline-warning">¡Averigua más!</a>
+                        <div className="btn btn-outline-warning">¡Averigua más!</div>
                     </Link>
                     <i className={isFavorite ? 'fa fa-star btn btn-outline-warning ms-5' : 'fa fa-heart btn btn-outline-warning ms-5'} onClick={() => cambioFavorito(item)} />
                 </div>

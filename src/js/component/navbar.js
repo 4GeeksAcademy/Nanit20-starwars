@@ -26,7 +26,7 @@ export const Navbar = () => {
 								{store.favorite.map((ele, ind) => (
 									<li>
 										<div className="d-flex flex-row ">
-											<Link to={""+(ele.type)+"/" + (ele.id)}> <a className="dropdown-item" href="#">{ele.name} </a></Link> <i className="fas fa-trash-alt" onClick={() => actions.deleteFavorite(ind)} style={{ flex: "none", margin: "10px" }}/> 
+											<Link to={""+(ele.type)+"/" + (ele.id)}> <div className="dropdown-item">{ele.name} </div></Link> <i className="fas fa-trash-alt" onClick={() => actions.deleteFavorite(ind)} style={{ flex: "none", margin: "10px" }}/> 
 										</div>
 									</li>
 								))}
